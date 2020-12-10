@@ -1,0 +1,28 @@
+{
+  "name": "sdb-foxx-service",
+  "version": "1.0.0",
+  "description": "Foxx Service for NoSQL DB",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "deploy": "npx foxx upgrade --server hbrs /service"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tog-leanix/sdb-foxx-service.git"
+  },
+  "keywords": [
+    "ArangoDB",
+    "FOXX",
+    "JAvascript"
+  ],
+  "author": "Tom Gehder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tog-leanix/sdb-foxx-service/issues"
+  },
+  "homepage": "https://github.com/tog-leanix/sdb-foxx-service#readme",
+  "devDependencies": {
+    "foxx-cli": "^2.0.0"
+  }
+}
