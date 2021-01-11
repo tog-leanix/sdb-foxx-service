@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "deploy": "npx foxx upgrade --server hbrs /service"
+    "install": "foxx install --server police_register /service",
+    "deploy": "foxx upgrade --server police_register /service",
+    "deploy:old": "npx foxx upgrade --server hbrs /service"
   },
   "repository": {
     "type": "git",
@@ -24,5 +26,8 @@
   "homepage": "https://github.com/tog-leanix/sdb-foxx-service#readme",
   "devDependencies": {
     "foxx-cli": "^2.0.0"
+  },
+  "dependencies": {
+    "microtime": "^3.0.0"
   }
 }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArangoDB Team 8</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="./app.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <label>
+      Amount of Requests
+      <input type="number" id="numOfRequests" value="100" />
+    </label>
+    <h1>Use Case 1</h1>
+    <div>
+      <input type="text" id="color" placeholder="color" value="red" />
+      <button onclick="runUseCase(1)">Run Use Case</button>
+      <h3>Foxx</h3>
+      <div id="resultsUseCaseOneFoxx"></div>
+      <h3>Java</h3>
+      <div id="resultsUseCaseOneJava"></div>
+      <div id="useCaseOneChart"></div>
+    </div>
+    <hr />
+    <h1>Use Case 2</h1>
+    <div>
+      <input type="text" id="colorcarId" placeholder="color" value="CAR ID" />
+      <button onclick="runUseCase(2)">Run Use Case</button>
+      <h3>Foxx</h3>
+      <div id="resultsUseCaseTwoFoxx"></div>
+      <h3>Java</h3>
+      <div id="resultsUseCaseTwoJava"></div>
+    </div>
+    <hr />
+    <h1>Use Case 3</h1>
+    <div>
+      <input type="text" id="model" placeholder="color" value="BMW" />
+      <button onclick="runUseCase(3)">Run Use Case</button>
+      <h3>Foxx</h3>
+      <div id="resultsUseCaseThreeFoxx"></div>
+      <h3>Java</h3>
+      <div id="resultsUseCaseThreeJava"></div>
+    </div>
+  </body>
+</html>

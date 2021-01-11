@@ -4,7 +4,10 @@
   "engines": {
     "arangodb": "^3.0.0"
   },
-  "name": "hello-world",
+  "scripts": {
+    "setup": "scripts/setup.js"
+  },
+  "name": "Police_Register",
   "version": "0.0.0",
   "license": "Apache-2.0",
   "author": "ArangoDB GmbH",
