@@ -16,37 +16,50 @@
       Amount of Requests
       <input type="number" id="numOfRequests" value="100" />
     </label>
-    <h1>Use Case 1</h1>
+    <h1>
+      Use Case 1 <small><br />Get all cars by given color</small>
+    </h1>
     <div>
       <input type="text" id="color" placeholder="color" value="red" />
       <button onclick="runUseCase(1)">Run Use Case</button>
+      <div id="useCaseOneChart"></div>
       <h3>Foxx</h3>
       <div id="resultsUseCaseOneFoxx"></div>
+      <pre id="dataFoxxUseCaseOne"></pre>
       <h3>Java</h3>
       <div id="resultsUseCaseOneJava"></div>
-      <div id="useCaseOneChart"></div>
+      <pre id="dataJavaUseCaseOne"></pre>
     </div>
     <hr />
-    <h1>Use Case 2</h1>
+    <h1>
+      Use Case 2 <small><br />Get car by given ID</small>
+    </h1>
     <div>
       <input type="text" id="carId" placeholder="" value="K-MJ-319" />
       <button onclick="runUseCase(2)">Run Use Case</button>
+      <div id="useCaseTwoChart"></div>
       <h3>Foxx</h3>
       <div id="resultsUseCaseTwoFoxx"></div>
+      <pre id="dataFoxxUseCaseTwo"></pre>
       <h3>Java</h3>
       <div id="resultsUseCaseTwoJava"></div>
-      <div id="useCaseTwoChart"></div>
+      <pre id="dataJavaUseCaseTwo"></pre>
     </div>
     <hr />
-    <h1>Use Case 3</h1>
+    <h1>
+      Use Case 3
+      <small><br />Get all models which were hitted by given model</small>
+    </h1>
     <div>
       <input type="text" id="model" placeholder="color" value="BMW" />
       <button onclick="runUseCase(3)">Run Use Case</button>
+      <div id="useCaseThreeChart"></div>
       <h3>Foxx</h3>
       <div id="resultsUseCaseThreeFoxx"></div>
+      <pre id="dataFoxxUseCaseThree"></pre>
       <h3>Java</h3>
       <div id="resultsUseCaseThreeJava"></div>
-      <div id="useCaseThreeChart"></div>
+      <pre id="dataJavaUseCaseThree"></pre>
     </div>
   </body>
 </html>

@@ -51,7 +51,7 @@ const getAllCarsFoxx = async () => {
     data.push(res);
     document.querySelector(
       "#resultsUseCaseOneFoxx"
-    ).innerHTML = `COUNT: ${times} - MAX: ${maxTimeMs} - AVG: ${avgTimeMs} - MIN: ${minTimeMs}`;
+    ).innerHTML = `REQUESTS: ${times} - MAX: ${maxTimeMs}ms - AVG: ${avgTimeMs}ms - MIN: ${minTimeMs}ms`;
   }
   return data;
 };
@@ -78,12 +78,22 @@ const getAllCarsJava = async () => {
     data.push(res);
     document.querySelector(
       "#resultsUseCaseOneJava"
-    ).innerHTML = `COUNT: ${times} - MAX: ${maxTimeMs} - AVG: ${avgTimeMs} - MIN: ${minTimeMs}`;
+    ).innerHTML = `REQUESTS: ${times} - MAX: ${maxTimeMs}ms - AVG: ${avgTimeMs}ms - MIN: ${minTimeMs}ms`;
   }
   return data;
 };
 
 const drawChartUseCaseOne = (dataFoxx = [], dataJava = []) => {
+  document.querySelector("#dataFoxxUseCaseOne").innerHTML = JSON.stringify(
+    dataFoxx[0],
+    null,
+    2
+  );
+  document.querySelector("#dataJavaUseCaseOne").innerHTML = JSON.stringify(
+    dataJava[0],
+    null,
+    2
+  );
   Highcharts.chart("useCaseOneChart", {
     chart: {
       type: "column",
@@ -125,7 +135,7 @@ const drawChartUseCaseOne = (dataFoxx = [], dataJava = []) => {
       {
         name: "Java",
         color: "blue",
-        data: dataJava.map((value) => value.delta),
+        data: dataJava.map((value) => value.time),
       },
     ],
   });
@@ -166,7 +176,7 @@ const getCarByIdFoxx = async () => {
     data.push(res);
     document.querySelector(
       "#resultsUseCaseTwoFoxx"
-    ).innerHTML = `COUNT: ${times} - MAX: ${maxTimeMs} - AVG: ${avgTimeMs} - MIN: ${minTimeMs}`;
+    ).innerHTML = `REQUESTS: ${times} - MAX: ${maxTimeMs}ms - AVG: ${avgTimeMs}ms - MIN: ${minTimeMs}ms`;
   }
   return data;
 };
@@ -183,8 +193,9 @@ const getCarByIdJava = async () => {
 
   while (times < numOfRequests) {
     times++;
+
     const res = await (
-      await fetch("http://10.20.110.61:8011/carservice/cars/" + carId)
+      await fetch("http://10.20.110.61:8011/carservice/car/" + carId)
     ).json();
     time += res.time;
     avgTimeMs = time / times;
@@ -193,12 +204,22 @@ const getCarByIdJava = async () => {
     data.push(res);
     document.querySelector(
       "#resultsUseCaseTwoJava"
-    ).innerHTML = `COUNT: ${times} - MAX: ${maxTimeMs} - AVG: ${avgTimeMs} - MIN: ${minTimeMs}`;
+    ).innerHTML = `REQUESTS: ${times} - MAX: ${maxTimeMs}ms - AVG: ${avgTimeMs}ms - MIN: ${minTimeMs}ms`;
   }
   return data;
 };
 
 const drawChartUseCaseTwo = (dataFoxx = [], dataJava = []) => {
+  document.querySelector("#dataFoxxUseCaseTwo").innerHTML = JSON.stringify(
+    dataFoxx[0],
+    null,
+    2
+  );
+  document.querySelector("#dataJavaUseCaseTwo").innerHTML = JSON.stringify(
+    dataJava[0],
+    null,
+    2
+  );
   Highcharts.chart("useCaseTwoChart", {
     chart: {
       type: "column",
@@ -235,12 +256,12 @@ const drawChartUseCaseTwo = (dataFoxx = [], dataJava = []) => {
       {
         name: "FOXX",
         color: "red",
-        data: dataFoxx.map((value) => value.delta),
+        data: dataFoxx.map((value) => value.keyValue.delta),
       },
       {
         name: "Java",
         color: "blue",
-        data: dataJava.map((value) => value.delta),
+        data: dataJava.map((value) => value.time),
       },
     ],
   });
@@ -281,7 +302,7 @@ const getCarAccidentsByModelFoxx = async () => {
     data.push(res);
     document.querySelector(
       "#resultsUseCaseThreeFoxx"
-    ).innerHTML = `COUNT: ${times} - MAX: ${maxTimeMs} - AVG: ${avgTimeMs} - MIN: ${minTimeMs}`;
+    ).innerHTML = `REQUESTS: ${times} - MAX: ${maxTimeMs}ms - AVG: ${avgTimeMs}ms - MIN: ${minTimeMs}ms`;
   }
   return data;
 };
@@ -299,24 +320,31 @@ const getCarAccidentsByModelJava = async () => {
   while (times < numOfRequests) {
     times++;
     const res = await (
-      await fetch(
-        "http://10.20.110.48:8529/_db/police_register/service/getModelStatisticOnAccidents/" +
-          model
-      )
+      await fetch("http://10.20.110.61:8011/carservice/graph/model/" + model)
     ).json();
-    time += res.delta;
+    time += res.time;
     avgTimeMs = time / times;
-    maxTimeMs = Math.max(maxTimeMs, res.delta);
-    minTimeMs = Math.min(minTimeMs, res.delta);
+    maxTimeMs = Math.max(maxTimeMs, res.time);
+    minTimeMs = Math.min(minTimeMs, res.time);
     data.push(res);
     document.querySelector(
       "#resultsUseCaseThreeJava"
-    ).innerHTML = `COUNT: ${times} - MAX: ${maxTimeMs} - AVG: ${avgTimeMs} - MIN: ${minTimeMs}`;
+    ).innerHTML = `REQUESTS: ${times} - MAX: ${maxTimeMs}ms - AVG: ${avgTimeMs}ms - MIN: ${minTimeMs}ms`;
   }
   return data;
 };
 
 const drawChartUseCaseThree = (dataFoxx = [], dataJava = []) => {
+  document.querySelector("#dataFoxxUseCaseThree").innerHTML = JSON.stringify(
+    dataFoxx[0],
+    null,
+    2
+  );
+  document.querySelector("#dataJavaUseCaseThree").innerHTML = JSON.stringify(
+    dataJava[0],
+    null,
+    2
+  );
   Highcharts.chart("useCaseThreeChart", {
     chart: {
       type: "column",
@@ -358,7 +386,7 @@ const drawChartUseCaseThree = (dataFoxx = [], dataJava = []) => {
       {
         name: "Java",
         color: "blue",
-        data: dataJava.map((value) => value.delta),
+        data: dataJava.map((value) => value.time),
       },
     ],
   });
