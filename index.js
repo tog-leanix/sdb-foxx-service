@@ -80,10 +80,8 @@ router
     const deltaQuery = new Date().getTime() - timeQuery;
 
     res.json({
-      query: {
-        delta: deltaQuery,
-        models,
-      },
+      delta: deltaQuery,
+      models,
     });
   })
   .response(["application/json"]);
