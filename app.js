@@ -99,7 +99,7 @@ const drawChartUseCaseOne = (dataFoxx = [], dataJava = []) => {
       type: "column",
     },
     title: {
-      text: "Queryzeit",
+      text: "Zeit von der Query für Autos in einer bestimmten Farbe",
     },
     xAxis: {
       categories: dataFoxx.map((_, index) => index + 1),
@@ -225,7 +225,7 @@ const drawChartUseCaseTwo = (dataFoxx = [], dataJava = []) => {
       type: "column",
     },
     title: {
-      text: "Zeit von der Query für Autos in einer bestimmten Farbe",
+      text: "Zeit von der Query für Auto eines bestimmten Nummernschildes",
     },
     xAxis: {
       categories: dataFoxx.map((_, index) => index + 1),
@@ -350,7 +350,8 @@ const drawChartUseCaseThree = (dataFoxx = [], dataJava = []) => {
       type: "column",
     },
     title: {
-      text: "Zeit von der Query für Autos in einer bestimmten Farbe",
+      text:
+        "Zeit von der Query für die Anzahl der Unfälle eines Modells an anderen Modellen",
     },
     xAxis: {
       categories: dataFoxx.map((_, index) => index + 1),
