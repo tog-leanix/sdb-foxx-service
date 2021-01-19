@@ -99,7 +99,7 @@ const drawChartUseCaseOne = (dataFoxx = [], dataJava = []) => {
       type: "column",
     },
     title: {
-      text: "Zeit von der Query für Autos in einer bestimmten Farbe",
+      text: "Queryzeit",
     },
     xAxis: {
       categories: dataFoxx.map((_, index) => index + 1),
