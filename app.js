@@ -1,3 +1,74 @@
+const loadCarList = async () => {
+  const req = await fetch("http://10.20.110.61:8011/carservice/cars");
+  const json = await req.json();
+
+  const carList = document.querySelector("#carList");
+  console.log(json.cars);
+  json.cars.forEach((car, index) => {
+    const item = document.createElement("li");
+    item.innerHTML = car.id;
+    item.onclick = () =>
+      (document.querySelector("#requestResults").innerHTML = JSON.stringify(
+        car,
+        null,
+        2
+      ));
+    carList.appendChild(item);
+  });
+};
+loadCarList();
+/**
+ 
+ *
+ * @param {Event} event
+ */
+const formSubmit = async (event) => {
+  event.preventDefault();
+  const form = event.target;
+  const id = form.elements["formId"].value || null;
+  const color = form.elements["formColor"].value || null;
+  const model = form.elements["formModel"].value || null;
+  const year = form.elements["formYear"].value || null;
+  const method = form.elements["method"].value;
+  const car = {
+    id,
+    color,
+    model,
+    year,
+  };
+  const urlWithoutId = method === "POST";
+  try {
+    const req = await fetch(
+      `http://10.20.110.61:8011/carservice/car${
+        urlWithoutId ? "" : "/" + car.id
+      }`,
+      {
+        method,
+        body:
+          method === "PUT" || method === "POST" ? JSON.stringify(car) : null,
+        headers: {
+          "Content-Type": "application/json",
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        // mode: "no-cors",
+      }
+    );
+    if (req.status === 200) {
+      const res = await req.json();
+      document.querySelector("#requestResults").innerHTML = JSON.stringify(
+        res,
+        null,
+        2
+      );
+      loadCarList();
+    }
+  } catch (error) {
+    alert(JSON.stringify(error));
+  }
+};
+
+// ################ Use Cases ###############
+
 function runUseCase(useCaseNumber) {
   switch (useCaseNumber) {
     case 1:

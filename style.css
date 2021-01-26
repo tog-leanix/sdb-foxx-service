@@ -25,7 +25,42 @@ html {
   padding: 16px 0;
 }
 
+.basicRequests {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+form {
+  width: 150px;
+}
+
+form label,
+form select,
+form input {
+  width: 100%;
+  margin: 10px 0;
+}
+
+ul {
+  max-height: 300px;
+  overflow: auto;
+  background-color: white;
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 5px 0;
+  cursor: pointer;
+}
+li:hover {
+  background-color: black;
+  color: white;
+}
+
 pre {
+  padding: 5px;
   white-space: pre-wrap;
   background-color: white;
   max-height: 100px;

@@ -12,6 +12,37 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <h1>Basic Queries</h1>
+    <div class="basicRequests">
+      <form onsubmit="formSubmit(event)">
+        <select onchange="" name="method">
+          <option value="GET">Get</option>
+          <option value="POST">Create</option>
+          <option value="PUT">Update</option>
+          <option value="DELETE">Delete</option>
+        </select>
+        <label>
+          License plate:
+          <input type="text" name="formId" id="formId" required />
+        </label>
+        <label>
+          Color:
+          <input type="text" name="formColor" id="formColor" />
+        </label>
+        <label>
+          Model
+          <input type="text" name="formModel" id="formModel" />
+        </label>
+        <label>
+          Year:
+          <input type="number" name="formYear" id="formYear" />
+        </label>
+        <input type="submit" value="Send" />
+      </form>
+      <pre id="requestResults"></pre>
+      <ul id="carList"></ul>
+    </div>
+    <hr />
     <label>
       Amount of Requests
       <input type="number" id="numOfRequests" value="100" />
