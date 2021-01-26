@@ -3,6 +3,7 @@ const loadCarList = async () => {
   const json = await req.json();
 
   const carList = document.querySelector("#carList");
+  carList.innerHTML = "";
   console.log(json.cars);
   json.cars.forEach((car, index) => {
     const item = document.createElement("li");
